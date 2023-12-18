@@ -11,7 +11,16 @@ app.get('/', (_, res) => {
 
 const start = async () => {
   // Initialize Payload
-  await payload.init({
+
+var cors = require('cors');
+var corsOptions = {
+  origin: '*',
+  credentials: true,
+  optionsSuccessStatus: 200
+}
+app.use(cors(corsOptions));
+ 
+await payload.init({
     secret: process.env.PAYLOAD_SECRET,
     express: app,
     onInit: async () => {
