@@ -21,7 +21,7 @@ var corsOptions = {
 app.use(cors(corsOptions));
  
 await payload.init({
-    secret: process.env.PAYLOAD_SECRET,
+    secret: process.env.PAYLOAD_SECRET!,
     express: app,
     onInit: async () => {
       payload.logger.info(`Payload Admin URL: ${payload.getAdminURL()}`)
